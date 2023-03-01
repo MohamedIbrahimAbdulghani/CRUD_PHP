@@ -30,6 +30,35 @@
     endif;
 
 ?>
+<h1 class="text-center col-12 bg-info py-3 text-white my-2 alert-dismissible fade show" role="alert">Add New User</h1>
+    <?php if($error_message): ?>
+        <h5 class="alert alert-danger text-center"><?php echo $error_message ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></h5>
+    <?php endif; ?>
 
+    <?php if($success_message): ?>
+        <h5 class="alert alert-success text-center"><?php echo $success_message ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></h5>
+    <?php endif; ?>
+
+    <div class="col-md-6 offset-md-3">
+        <form class="my-2 p-3 border" action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+            <div class="form-group">
+                <label for="exampleInputName1">Full Name</label>
+                <input type="text" name="name" class="form-control" id="exampleInputName1" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputName1">Email address</label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+            </div>
+         
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+        </form>
+    </div>
+   
 
     <?php require_once "include/footer.php"; ?>
