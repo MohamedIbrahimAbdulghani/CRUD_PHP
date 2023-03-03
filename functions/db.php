@@ -48,3 +48,4 @@ function checkId($id) {
         header("Location: index.php");
     }
 }
+
