@@ -1,6 +1,9 @@
 
 <?php 
     require_once "include/header.php";
+    require_once "functions/db.php";
+
+    $result = getUsers();
 
 ?>
 
@@ -18,66 +21,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php foreach($result as $row): ?>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>a@a.com</td>
+                        <th><?php echo $row["user_id"] ?></th>
+                        <td><?php echo $row["user_name"] ?></td>
+                        <td><?php echo $row["user_email"] ?></td>
                         <td>
-                            <a class="btn btn-info" href="edit.php"> <i class="fa fa-edit"></i> </a>
+                            <a class="btn btn-info" href="edit.php?id=<?php echo $row["user_id"]?>"> <i class="fa fa-edit"></i> </a>
                         </td>
                         <td>
-                            <a class="btn btn-danger" href="delete.php"> <i class="fa fa-close"></i> </a>
+                            <a class="btn btn-danger" href="delete.php?id=<?php echo $row["user_id"] ?>"> <i class="fa fa-close"></i> </a>
                         </td>
                     </tr>
-
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Mark</td>
-                        <td>a@a.com</td>
-                        <td>
-                            <a class="btn btn-info" href="edit.php"> <i class="fa fa-edit"></i> </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="delete.php"> <i class="fa fa-close"></i> </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Mark</td>
-                        <td>a@a.com</td>
-                        <td>
-                            <a class="btn btn-info" href="edit.php"> <i class="fa fa-edit"></i> </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="delete.php"> <i class="fa fa-close"></i> </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Mark</td>
-                        <td>a@a.com</td>
-                        <td>
-                            <a class="btn btn-info" href="edit.php"> <i class="fa fa-edit"></i> </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="delete.php"> <i class="fa fa-close"></i> </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Mark</td>
-                        <td>a@a.com</td>
-                        <td>
-                            <a class="btn btn-info" href="edit.php"> <i class="fa fa-edit"></i> </a>
-                        </td>
-                        <td>
-                            <a class="btn btn-danger" href="delete.php"> <i class="fa fa-close"></i> </a>
-                        </td>
-                    </tr>
-                
+                <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
